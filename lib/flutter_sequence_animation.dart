@@ -213,7 +213,7 @@ class SequenceAnimationBuilder {
 class SequenceAnimation {
   final Map<Object, Animation> _animations;
   final AnimationController controller;
-  
+
   /// Use the [SequenceAnimationBuilder] to construct this class.
   SequenceAnimation._internal(this._animations, this.controller);
 
@@ -223,6 +223,8 @@ class SequenceAnimation {
         "There was no animatable with the key: $key");
     return _animations[key]!;
   }
+
+  bool contains(Object key) => _animations.containsKey(key);
 }
 
 /// Evaluates [animatable] if the animation is in the time-frame of [begin] (inclusive) and [end] (inclusive),
