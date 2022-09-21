@@ -208,6 +208,8 @@ class SequenceAnimationBuilder {
 
     return new SequenceAnimation._internal(result, controller);
   }
+
+  bool get isNotEmpty => _animations.isNotEmpty;
 }
 
 class SequenceAnimation {
