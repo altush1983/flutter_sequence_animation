@@ -206,15 +206,16 @@ class SequenceAnimationBuilder {
       result[tag] = animInfo.animate(controller);
     });
 
-    return new SequenceAnimation._internal(result);
+    return new SequenceAnimation._internal(result, controller);
   }
 }
 
 class SequenceAnimation {
   final Map<Object, Animation> _animations;
-
+  final AnimationController controller;
+  
   /// Use the [SequenceAnimationBuilder] to construct this class.
-  SequenceAnimation._internal(this._animations);
+  SequenceAnimation._internal(this._animations, this.controller);
 
   /// Returns the animation with a given tag, this animation is tied to the controller.
   Animation operator [](Object key) {
